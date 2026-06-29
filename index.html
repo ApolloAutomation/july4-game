@@ -2,39 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>4th of July Whack-A-Mole 🎆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4th of July Whack-A-Mole 🎆 | Apollo Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <img id="header-logo" src="images/Apollo Stacked Blue-Green.png" alt="Apollo Automation Logo">
-  <h1>Happy 4th of July from all of us at Apollo Automation!</h1>
-  <p id="taps">Taps: 0/5</p>
-  <div id="game-board"></div>
-  <div id="result" class="hidden">
-    <h2>🎉 You reached 5 taps! 🎉</h2>
-    <p>Enter the giveaway to win a free M-1 LED Matrix:</p>
-    <a href="https://dyno.gg/giveaway/6f0e037f" class="btn" target="_blank">Enter Giveaway</a>
-  </div>
-  <a id="skip" href="https://dyno.gg/giveaway/6f0e037f" class="btn" target="_blank">Skip game and enter giveaway</a>
+  <div class="glow glow--red"></div>
+  <div class="glow glow--blue"></div>
+
+  <main class="stage">
+    <img id="header-logo" src="images/Apollo Stacked Blue-Green.png" alt="Apollo Automation">
+
+    <!-- INTRO -->
+    <section id="intro" class="card">
+      <p class="eyebrow">★ Apollo Automation · 4th of July ★</p>
+      <h1>Happy 4th of July!</h1>
+      <p class="lede">Whack the Apollo marks before they vanish. Land <strong>5 hits</strong> and you're entered to win a free <strong>BTN-1 Macro Deck</strong>.</p>
+      <ol class="howto">
+        <li><span>1</span> Apollo marks pop up around the board</li>
+        <li><span>2</span> Tap them fast, before they disappear</li>
+        <li><span>3</span> Hit <strong>5</strong> to unlock the giveaway</li>
+      </ol>
+      <button id="start" class="btn btn--primary">Start Whacking 🎆</button>
+      <a id="skip" href="https://forum.apolloautomation.com/t/happy-4th-of-july-come-celebrate-with-us-and-enter-to-win-a-free-btn-1-macro-deck/37" class="link-muted" target="_blank" rel="noopener">Skip the game, enter the giveaway →</a>
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="hidden">
+      <div class="progress">
+        <span id="taps-label">Hits</span>
+        <div class="pips" id="pips"></div>
+        <span id="taps-count">0 / 5</span>
+      </div>
+      <div id="game-board"></div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="result" class="card hidden">
+      <p class="eyebrow eyebrow--win">★ You did it ★</p>
+      <h2>You whacked all 5! 🎆</h2>
+      <p class="lede">You're in for the giveaway. We're giving away a
+        <a href="https://apolloautomation.com/products/btn-1-macro-deck" target="_blank" rel="noopener">BTN-1 Macro Deck</a>,
+        our programmable button deck for running your smart home. New to it?
+        <a href="https://www.youtube.com/watch?v=4WbFfIAibwg" target="_blank" rel="noopener">Watch the quick setup video</a>.</p>
+
+      <p class="enter-line">To enter, comment on our 4th of July giveaway post on the Apollo forums.</p>
+      <a id="enter" class="btn btn--primary" href="https://forum.apolloautomation.com/t/happy-4th-of-july-come-celebrate-with-us-and-enter-to-win-a-free-btn-1-macro-deck/37" target="_blank" rel="noopener">Enter on the Forums →</a>
+
+      <div class="fineprint">
+        <p>Giveaway ends <strong>Sunday, July 5 at 11:59pm EST</strong>. We'll draw a random winner and announce it live during our stream on <strong>Monday, July 6 at 7pm CST</strong>. Come hang out:</p>
+        <p class="stream-links">
+          <a href="https://discord.com/events/1126966963206361199/1392039105554026506/1523840974848000000" target="_blank" rel="noopener">Discord stream</a>
+          ·
+          <a href="https://www.youtube.com/@ApolloAutomation/streams" target="_blank" rel="noopener">YouTube stream</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <a href="https://discord.com/invite/zAk3b6gWzt" target="_blank" rel="noopener">
-      <svg height="24" viewBox="0 0 245 240" xmlns="http://www.w3.org/2000/svg">
-        <path d="M104.4 104.3c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.3-5 10.2-11.1 0-6.1-4.6-11.1-10.2-11.1zm36.2 0c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.3-5 10.2-11.1 0-6.1-4.6-11.1-10.2-11.1z" fill="#5865F2"/><path d="M189.5 20h-134C38 20 20 38 20 60.5v119C20 202 38 220 60.5 220h113.9l-5.3-18.4 12.7 11.8 12 11 21.3 19V60.5C220 38 202 20 189.5 20zm-34 137s-3.2-3.8-5.9-7.1c11.8-3.4 16.2-10.9 16.2-10.9-3.7 2.4-7.3 4.1-10.5 5.2-4.6 2-9 3.3-13.3 4-8.8 1.6-16.8 1.2-23.7-.1-5.2-1-9.7-2.4-13.5-4-2.1-.8-4.4-1.9-6.7-3.2-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.3 7.1 15.6 10.6c-2.6 3.3-6 7.3-6 7.3-19.8-.6-27.3-13.6-27.3-13.6 0-28.8 12.8-52.1 12.8-52.1 12.8-9.6 25-9.3 25-9.3l.9 1.1c-16.1 4.7-23.5 11.8-23.5 11.8s2 0 5.4.3c9.7.7 17.2 3.6 22.8 6.8 1.1.6 2.1 1.3 3.1 2 7.8-2.2 16.5-3.3 25.6-3.4 0 0-7.1-6.7-22.4-11.5l1.3-1.5s12.2-.3 25 9.3c0 0 12.8 23.3 12.8 52.1z" fill="#5865F2"/>
-      </svg> Discord
+      <svg height="22" viewBox="0 0 245 240" xmlns="http://www.w3.org/2000/svg"><path d="M104.4 104.3c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.3-5 10.2-11.1 0-6.1-4.6-11.1-10.2-11.1zm36.2 0c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.3-5 10.2-11.1 0-6.1-4.6-11.1-10.2-11.1z" fill="currentColor"/><path d="M189.5 20h-134C38 20 20 38 20 60.5v119C20 202 38 220 60.5 220h113.9l-5.3-18.4 12.7 11.8 12 11 21.3 19V60.5C220 38 202 20 189.5 20zm-34 137s-3.2-3.8-5.9-7.1c11.8-3.4 16.2-10.9 16.2-10.9-3.7 2.4-7.3 4.1-10.5 5.2-4.6 2-9 3.3-13.3 4-8.8 1.6-16.8 1.2-23.7-.1-5.2-1-9.7-2.4-13.5-4-2.1-.8-4.4-1.9-6.7-3.2-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.3 7.1 15.6 10.6c-2.6 3.3-6 7.3-6 7.3-19.8-.6-27.3-13.6-27.3-13.6 0-28.8 12.8-52.1 12.8-52.1 12.8-9.6 25-9.3 25-9.3l.9 1.1c-16.1 4.7-23.5 11.8-23.5 11.8s2 0 5.4.3c9.7.7 17.2 3.6 22.8 6.8 1.1.6 2.1 1.3 3.1 2 7.8-2.2 16.5-3.3 25.6-3.4 0 0-7.1-6.7-22.4-11.5l1.3-1.5s12.2-.3 25 9.3c0 0 12.8 23.3 12.8 52.1z" fill="currentColor"/></svg> Discord
     </a>
     <a href="https://www.youtube.com/@ApolloAutomation" target="_blank" rel="noopener">
-      <svg height="24" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.7 124.1c-6.3-23.8-24.9-42.5-48.6-48.9C458.5 64 288 64 288 64S117.5 64 74.9 75.2c-23.7 6.4-42.3 25.1-48.6 48.9C16 167.6 16 256 16 256s0 88.4 10.3 131.9c6.3 23.8 24.9 42.5 48.6 48.9C117.5 448 288 448 288 448s170.5 0 213.1-11.2c23.7-6.4 42.3-25.1 48.6-48.9C560 344.4 560 256 560 256s0-88.4-10.3-131.9zM232 334V178l142 78-142 78z" fill="#FF0000"/></svg> YouTube
+      <svg height="22" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.7 124.1c-6.3-23.8-24.9-42.5-48.6-48.9C458.5 64 288 64 288 64S117.5 64 74.9 75.2c-23.7 6.4-42.3 25.1-48.6 48.9C16 167.6 16 256 16 256s0 88.4 10.3 131.9c6.3 23.8 24.9 42.5 48.6 48.9C117.5 448 288 448 288 448s170.5 0 213.1-11.2c23.7-6.4 42.3-25.1 48.6-48.9C560 344.4 560 256 560 256s0-88.4-10.3-131.9zM232 334V178l142 78-142 78z" fill="currentColor"/></svg> YouTube
     </a>
     <a href="https://github.com/ApolloAutomation" target="_blank" rel="noopener">
-      <svg height="24" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297C5.37.297 0 5.667 0 12.297c0 5.43 3.457 10.037 8.247 11.657.602.113.825-.26.825-.578v-2.234c-3.338.725-4.043-1.61-4.043-1.61-.546-1.385-1.333-1.755-1.333-1.755-1.089-.745.084-.73.084-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.305 3.495.998.108-.775.422-1.305.765-1.605-2.665-.305-5.467-1.332-5.467-5.931 0-1.31.467-2.381 1.233-3.221-.124-.304-.536-1.528.117-3.177 0 0 1.008-.323 3.301 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.292-1.553 3.298-1.23 3.298-1.23.654 1.649.242 2.873.118 3.177.768.84 1.233 1.911 1.233 3.221 0 4.61-2.807 5.625-5.48 5.921.434.374.822 1.109.822 2.235v3.313c0 .319.223.694.826.576C20.547 22.335 24 17.727 24 12.297 24 5.667 18.627.297 12 .297z"/></svg> GitHub
+      <svg height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297C5.37.297 0 5.667 0 12.297c0 5.43 3.457 10.037 8.247 11.657.602.113.825-.26.825-.578v-2.234c-3.338.725-4.043-1.61-4.043-1.61-.546-1.385-1.333-1.755-1.333-1.755-1.089-.745.084-.73.084-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.305 3.495.998.108-.775.422-1.305.765-1.605-2.665-.305-5.467-1.332-5.467-5.931 0-1.31.467-2.381 1.233-3.221-.124-.304-.536-1.528.117-3.177 0 0 1.008-.323 3.301 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.292-1.553 3.298-1.23 3.298-1.23.654 1.649.242 2.873.118 3.177.768.84 1.233 1.911 1.233 3.221 0 4.61-2.807 5.625-5.48 5.921.434.374.822 1.109.822 2.235v3.313c0 .319.223.694.826.576C20.547 22.335 24 17.727 24 12.297 24 5.667 18.627.297 12 .297z"/></svg> GitHub
     </a>
     <a href="https://wiki.apolloautomation.com/" target="_blank" rel="noopener">
-      <svg height="24" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M6 2h12a2 2 0 012 2v16l-8-4-8 4V4a2 2 0 012-2z"/></svg> Wiki
+      <svg height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 2h12a2 2 0 012 2v16l-8-4-8 4V4a2 2 0 012-2z"/></svg> Wiki
     </a>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.1.0/dist/fireworks.min.js"></script>
-  <script>window.fireworks=new Fireworks(document.body,{speed:3,acceleration:1.05,friction:0.97,gravity:1.5,particles:50,trace:3,autoresize:true,hue:{min:0,max:360},delay:{min:10,max:30},rocketsPoint:{min:0,max:40}});window.fireworks.start();</script>
   <script src="script.js"></script>
 </body>
 </html>
