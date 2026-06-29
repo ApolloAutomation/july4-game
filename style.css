@@ -227,12 +227,13 @@ h2 { font-size: clamp(1.8rem, 6vw, 2.6rem); }
 }
 
 /* game board */
+#game { width: 100%; }
 #game-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 18px;
   width: 100%;
-  max-width: 440px;
+  max-width: 600px;
   margin: 0 auto;
 }
 .hole {
